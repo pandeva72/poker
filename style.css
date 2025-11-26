@@ -1,0 +1,202 @@
+:root {
+    --table-color: #2c3e50; /* Dark Blue */
+    --felt-color: #34495e; /* Lighter Blue for felt texture effect if needed, or just solid */
+    --felt-color-radial: radial-gradient(circle, #3498db 0%, #2980b9 100%); /* Blue Table */
+    --card-width: 60px;
+    --card-height: 84px;
+    --chip-color: #f1c40f;
+    --text-color: #ecf0f1;
+    --primary-btn: #3498db;
+    --danger-btn: #e74c3c;
+    --success-btn: #2ecc71;
+    --warning-btn: #f39c12;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #1a1a1a;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.poker-table {
+    width: 90%;
+    height: 60%;
+    background: var(--felt-color-radial);
+    border-radius: 200px;
+    border: 15px solid #2c3e50;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5) inset;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.community-cards {
+    display: flex;
+    gap: 10px;
+    height: var(--card-height);
+    margin-bottom: 20px;
+}
+
+.pot-display {
+    position: absolute;
+    top: 35%;
+    background: rgba(0,0,0,0.3);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.player-area {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+.ai-player {
+    top: -40px; /* Overlapping top edge */
+}
+
+.user-player {
+    bottom: -40px; /* Overlapping bottom edge */
+}
+
+.player-info {
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 2px solid #bdc3c7;
+}
+
+.player-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.player-action {
+    font-size: 0.9rem;
+    color: #f1c40f;
+    height: 1.2em; /* Reserve space */
+}
+
+.hand {
+    display: flex;
+    gap: 5px;
+}
+
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    user-select: none;
+}
+
+.card.red {
+    color: #e74c3c;
+}
+
+.card.black {
+    color: #2c3e50;
+}
+
+.card.back {
+    background: repeating-linear-gradient(
+        45deg,
+        #c0392b,
+        #c0392b 10px,
+        #e74c3c 10px,
+        #e74c3c 20px
+    );
+    border: 2px solid white;
+}
+
+.controls {
+    margin-top: 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: rgba(44, 62, 80, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s;
+    font-size: 1rem;
+    color: white;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-danger { background-color: var(--danger-btn); }
+.btn-secondary { background-color: #95a5a6; }
+.btn-primary { background-color: var(--primary-btn); }
+.btn-warning { background-color: var(--warning-btn); }
+.btn-success { background-color: var(--success-btn); }
+
+.hidden {
+    display: none !important;
+}
+
+.game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    display: none;
+    z-index: 100;
+    text-align: center;
+}
+
+.raise-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
